@@ -35,6 +35,10 @@ const apiConfig = {
     makeOrder: async () => {
 
     },
+    getReqToken: async () => {
+        const reqToken = await (await fetch(REQ_TOKEN_URL)).json();
+        return reqToken.req_token;
+    },
     login: async (reqToken, email, password) => {
         const body = {
             email,
@@ -47,21 +51,40 @@ const apiConfig = {
                 body: JSON.stringify(body)
             })
         ).json();
+
+        if (data.success) {
+            const sessionId = await (
+                await fetch(SESSION_ID_URL, {
+                    ...defaultConfig,
+                    body: JSON.stringify({ req_token: reqToken})
+                })
+            ).json();
+            return sessionId;
+        }
     },
-    registration: async (
+    register: async (
         name, 
         lastName, 
         email,
         password, 
-        repeatPassword,
-        address
+        phoneNumber,
+        street,
+        houseNumber,
+        postalCode,
+        city,
+        reqToken
     ) => {
         const body = {
             name,
             lastName,
             email,
             password,
-            address
+            phoneNumber,
+            street,
+            houseNumber,
+            postalCode,
+            city,
+            req_token: reqToken,
         }
         const data = await (
             await fetch(USERS_URL, {
@@ -69,11 +92,17 @@ const apiConfig = {
                 body: JSON.stringify(body)
             })
         );
-        
+
         if (data.success) {
-            return 'Zarejestrowano pomyslnie';
+            const sessionId = await (
+                await fetch(SESSION_ID_URL, {
+                    ...defaultConfig,
+                    body: JSON.stringify({ req_token: reqToken})
+                })
+            ).json();
+            return sessionId;
         }
-
     }
-
 }
+
+export default apiConfig
