@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import Button from './Button';
 import {Wrapper, Content} from './Form.styles';
 
@@ -9,15 +9,9 @@ const Form = ({title, type, fields}) => {
 
     const fetchFormData = () => {}
 
-    const handleInput = target => {
-        target.preventDefault();
-        if (target.value !== target.regex) {
-            setInputError(true)
-            return
-        }
-        setInputError(false)
-        setData(values => ({ ...values, [target.name] : target.value }))
-        return
+    const handleInput = e => {
+        const name = e.currentTarget.name;
+        const value = e.currentTarget.value;
     }
 
     const handleSubmit = e => {

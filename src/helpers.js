@@ -8,6 +8,12 @@ export const ConvertTimeToPercent = (totalTime, passedTime) => {
     const estimatedTimeLeft = totalTime - passedTime;
     const convertion = Math.floor((totalTime / estimatedTimeLeft) * 100);
     return convertion;
+};
+
+
+export const isPersistedState = stateName => {
+    const sessionState = sessionStorage.getItem(stateName);
+    return sessionState && JSON.parse(sessionState);
 }
 
 

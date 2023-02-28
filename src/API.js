@@ -3,6 +3,7 @@ import {
     API_KEY,
     OFFER_BASE_URL,
     ORDERS_BASE_URL,
+    TRANSACTIONS_URL,
     ACTIVE_ORDERS,
     SEARCH_BASE_URL,
     USERS_URL,
@@ -28,12 +29,63 @@ const apiConfig = {
         const endpoint = `${OFFER_BASE_URL}offer/${offerId}`;
         return await (await fetch(endpoint)).json();
     },
-    fetchOrders: async () => {
-        const endpoint = `${ORDERS_BASE_URL}`;
+    fetchOrders: async (userId) => {
+        const endpoint = `${ORDERS_BASE_URL}${userId}`;
         return await (await fetch(endpoint)).json();
     },
-    makeOrder: async () => {
-
+    fetchOrder: async (userId, orderId) => {
+        const endpoint = `${ORDERS_BASE_URL}${userId}/${orderId}`;
+        return await (await fetch(endpoint)).json();
+    }, 
+    makeOrder: async (
+        purchaser,
+        timeTotal,
+        timeRemaining,
+        timePassed,
+        products,
+        orderPrice,
+        deliveryPrice,
+        totalPrice
+    ) => {
+        const body = {
+            purchaser,
+            timeTotal,
+            timeRemaining,
+            timePassed,
+            products,
+            orderPrice,
+            deliveryPrice,
+            totalPrice
+        }
+        await (
+            await fetch(ORDERS_BASE_URL, {
+                ...defaultConfig,
+                body: JSON.stringify(body)
+            }
+        ))
+    },
+    fetchUserTransactions: async (userId) => {
+        const endpoint = `${TRANSACTIONS_URL}${userId}`;
+        return await (await fetch(endpoint)).json();
+    },
+    fetchUserTransaction: async (userId, transactionId) => {
+        const endpoint = `${TRANSACTIONS_URL}${userId}/${transactionId}`;
+        return await (await fetch(endpoint)).json();
+    },
+    makeTransaction: async (
+        userId,
+        token,
+        amount,  
+    ) => {
+        const body = {
+            userId,
+            token,
+            amount
+        };
+        await (await fetch(TRANSACTIONS_URL, {
+            ...defaultConfig,
+            body: JSON.stringify(body)
+        })).json();
     },
     getReqToken: async () => {
         const reqToken = await (await fetch(REQ_TOKEN_URL)).json();

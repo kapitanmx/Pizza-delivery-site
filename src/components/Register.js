@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import API from '../API';
 
@@ -44,6 +44,11 @@ const Register = () => {
     const handleInput = e => {
         const name = e.currentTarget.name;
         const value = e.currentTarget.value;
+        const mailRegEx = ``;
+        const passwordRegEx = ``;
+        const phoneRegEx = ``;
+        const streetRegEx = ``;
+        const postalCodeRegEx = ``;
         if (name === 'first name') setFirstName(value);
         if (name === 'last name') setLastName(value);
         if (name === 'email') setEmail(value);

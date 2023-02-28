@@ -4,8 +4,8 @@ import { Wrapper, Content } from './Thumb.styles';
 // Components
 import Button from '../Button';
 
-const Thumb = ({isImage, title, desc, price, img, link}) => (
-    <Wrapper isImage={isImage} imgUrl={img}>
+const Thumb = ({title, desc, price, img, link}) => (
+    <Wrapper imgUrl={img}>
         <Content>
             <div>
                 <h3>{title}</h3>

@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react'
-import API from '../../API'
+import API from '../API'
+import { isPersistedState } from '../helpers'
 
 export const useOfferFetch = offerId => {
     const [state, setState] = useState({})
@@ -13,15 +14,28 @@ export const useOfferFetch = offerId => {
                 setError(false);
 
                 const offer = await API.fetchOffer(offerId);
-                setState({...offer});
+                setState(offer);
 
                 setLoading(false)
             } catch (error) {
                 setError(true);
             }
         };
+
+        const sessionState = isPersistedState(offerId);
+
+        if (sessionState) {
+            setState(sessionState);
+            setLoading(false);
+            return;
+        }
+
         fetchOffer()
-    }, [offerId])
+    }, [offerId]);
+
+    useEffect(() => {
+        sessionStorage.setItem(offerId, JSON.stringify(state));
+    }, [offerId, state]);
 
     return { state, loading, error };
 }
