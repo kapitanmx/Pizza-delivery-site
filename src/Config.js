@@ -12,6 +12,10 @@ const ACTIVE_ORDERS = `${ORDERS_BASE_URL}active/`;
 const USERS_URL = ``;
 const REQ_TOKEN_URL = ``;
 const SESSION_ID_URL = ``;
+// Imgs
+const IMG_BASE_URL = ``;
+const POSTER_SIZE = ``;
+const BACKDROP_SIZE = ``;
 
 export {
     BASE_URL,
@@ -24,4 +28,7 @@ export {
     USERS_URL,
     REQ_TOKEN_URL,
     SESSION_ID_URL,
+    IMG_BASE_URL,
+    POSTER_SIZE,
+    BACKDROP_SIZE,
 };

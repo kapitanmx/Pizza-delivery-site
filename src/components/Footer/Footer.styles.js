@@ -1,10 +1,16 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-    max-width: var(--maxWidth);
+    width: 100%;
     margin: 0 auto;
     padding: 20px;
     background: var(--medGrey);
+    text-align: center;
+    p {
+        margin: 0 auto;
+        padding: 20px;
+        color: var(--white);
+    }
 `;
 
 export const Content = styled.div`
@@ -17,6 +23,12 @@ export const Content = styled.div`
     div {
         margin: 0 auto;
         padding: 20px;
+        h2, h3, a {
+            color: var(--white);
+        }
+        a {
+            text-decoration: none;
+        }
     }
     @media screen and (max-width: 960px) {
         flex-direction: column;

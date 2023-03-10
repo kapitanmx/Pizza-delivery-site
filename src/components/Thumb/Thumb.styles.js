@@ -8,7 +8,10 @@ export const Wrapper = styled.div`
     margin: 0 auto;
     border-radius: 20px;
     transition: all 1s;
-    background: ${({isImage}) => isImage ? `url('/' + ${({imgUrl}) => imgUrl})` : 'var(--black)'}
+    a {
+        text-decoration: none;
+        color: var(--black);
+    }
     :hover {
         -webkit-box-shadow: 1px 1px 24px 0px rgba(66, 68, 90, 1);
         -moz-box-shadow: 1px 1px 24px 0px rgba(66, 68, 90, 1);
@@ -26,15 +29,20 @@ export const Content = styled.div`
     flex-direction: column;
     justify-content: center;
     div {
-        align-self: flex-start;
         margin: 0;
         padding: 20px;
-        height: 250px;
+        p {
+            display: -webkit-box;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+        }
     }
     img {
         width: 100%;
-        border-radius: 20px 20px 0 0 ;
+        border-radius: 20px 20px 0 0;
         object-fit: cover;
-        height: 250px;
+        height: 200px;
     }
 `;

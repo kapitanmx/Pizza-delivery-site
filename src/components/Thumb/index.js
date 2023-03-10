@@ -1,19 +1,31 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 //Styles
 import { Wrapper, Content } from './Thumb.styles';
 // Components
 import Button from '../Button';
 
-const Thumb = ({title, desc, price, img, link}) => (
-    <Wrapper imgUrl={img}>
-        <Content>
-            <div>
-                <h3>{title}</h3>
-                <p>{desc}</p>
-                <h4>{price}</h4>
-            </div>
-            <Button text='Sprawdź' isLink={true} link={link} />
-        </Content>
+const Thumb = ({productId, title, desc, price, img, clickable}) => (
+    <Wrapper>
+        {clickable ? (
+            <Link to={`/${productId}`}>
+                <Content>
+                    <img src={img} />
+                    <div>
+                        <h2>{title}</h2>
+                        <p>{desc}</p>
+                    </div>
+                </Content>
+            </Link>
+        ) : (
+            <Content>
+                <img src={img} />
+                <div>
+                    <h2>{title}</h2>
+                    <p>{desc}</p>
+                </div>
+            </Content>
+        )}
     </Wrapper>
 );
 

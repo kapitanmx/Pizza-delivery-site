@@ -12,13 +12,13 @@ const Footer = ({info}) => {
             <Content>
                 {info.map((child) => (
                     <div>
-                        <h3>{child.title}</h3>
-                        <p>{child.info}</p>
+                        <h2>{child.title}</h2>
+                        <h3>{child.info}</h3>
                         <a href={`/${child.link}`}>{child.linkTitle}</a>
                     </div>
                 ))}
-                <p>© {currentYear()} Mikołaj Wołoszyn</p>
             </Content>
+            <p>© {currentYear()} Mikołaj Wołoszyn</p>
         </Wrapper>
     )
 };

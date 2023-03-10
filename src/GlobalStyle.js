@@ -36,7 +36,6 @@ export const GlobalStyle = createGlobalStyle`
 
         p {
             font-size: 1rem;
-            color: var(--white);
         }
     }
 `

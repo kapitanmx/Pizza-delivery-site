@@ -1,17 +1,20 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.button`
-    margin: 20px auto;
+    margin: 0 auto;
     width: 25%;
-    height: 50px;
-    border: 2px solid var(--black);
+    border: 2px solid var(--white);
     color: var(--black);
     background: var(--white);
-    border-radius: 20px;
+    border-radius: 25px;
     outline: none;
     transition: ease-in 0.3s;
-    :hover {
-        background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(252,69,97,1) 50%, rgba(199,152,64,1) 96%);
-        border: none;
+    a {
+        text-decoration: none;
+        color: var(--black);
+    }
+    @media screen and (max-width: 768px) {
+        width: 50vw;
+        margin: 0 60px;
     }
 `;

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import API from '../API';
-import { isPersistedState } from '../heplers'
+import { isPersistedState } from '../helpers'
 
 const initialState = {
     page: 0,
@@ -58,5 +58,5 @@ export const useProductsFetch = () => {
         if (!searchTerm) sessionStorage.setItem('homeState', JSON.stringify(state));
     }, [searchTerm, state]);
 
-    return { state, loading, error, searchTerm, setSearchTerm, setIsLoadingMore}
+    return { state, loading, error, searchTerm, setSearchTerm, setIsLoadingMore }
 }

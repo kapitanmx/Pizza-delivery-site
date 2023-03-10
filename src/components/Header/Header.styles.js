@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
     width: 100%;
-    max-width: var(--maxWidth);
+    background: var(--white);
+    color: var(--black);
     margin: 0 auto;
-    padding: 10px;
-    display: flex;
+    display: flex; 
     flex-direction: row;
     justify-content: space-between;
     position: fixed;
@@ -24,10 +24,9 @@ export const Content = styled.div`
     width: 40%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     flex-wrap: wrap;
-    margin: 40px auto;
-    padding: 0 20px;
+    justify-content: space-between;
+    margin: 30px auto;
     a {
         text-decoration: none;
         color: var(--black);
@@ -37,8 +36,25 @@ export const Content = styled.div`
     }
 `;
 
+export const Logo = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-self: left;
+    margin: 0 auto;
+    padding: 5px 0;
+    width: 20%;
+    height: auto;
+    z-index: 5;
+    color: ${({ open }) => open ? '#fff' : '#000'};
+    @media screen and (max-width: 768px) {
+        width: 50%;
+        margin: 0;
+        padding: 0;
+    }
+`;
+
 export const LinkButton = styled.div`
-    color: ${({isScrolled}) => isScrolled ? '#000' : 'white'};
+    color: var(--black);
     @media screen and (max-width: 900px) {
         color: var(--white);
         align-self: left;
@@ -85,10 +101,11 @@ export const Burger = styled.div`
     justify-content: space-around;
     width: 2rem;
     height: 2rem;
+    right: 0;
     background: transparent;
     border: none;
     cursor: pointer;
-    margin: 10px 10px;
+    margin: 17px 10px;
     padding: 0;
     z-index: 5;
 
@@ -127,7 +144,6 @@ export const Icon = styled.img`
     width: 100%;
     height: auto;
 `;
-
 
 export const Img = styled.img`
     display: block;

@@ -11,16 +11,20 @@ export const Content = styled.div`
     margin: 0 auto;
     display: flex;
     flex-direction: row;
-    button {
-
-    }
     input {
         width: 50%;
         background: var(--lightGrey);
         color: var(--black);
-        outline: none;
+        font-size: 1rem;
         margin: 0 auto;
-        padding: 15px;
-        border-radius: 20px;
+        padding: 20px;
+        border: 0px solid;
+        border-radius: 25px;
+        :focus {
+            outline: none;
+        }
+        @media screen and (max-width: 768px) {
+            width: 100%;
+        }
     }
 `;

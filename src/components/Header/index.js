@@ -27,8 +27,10 @@ const Header = ({links}) => {
     };
 
     return (
-        <Wrapper>
-            <Logo src="" href="/" />
+        <Wrapper isScrolled={isScrolled}>
+            <Logo open={open} isScrolled={isScrolled}>
+                <h2>PizzaDelivery</h2>
+            </Logo>
             <Content>
                 {links.map(link => (
                     <Link to={`/${link.toLowerCase()}`}>

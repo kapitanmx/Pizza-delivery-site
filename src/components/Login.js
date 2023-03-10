@@ -4,7 +4,7 @@ import API from '../API';
 
 import { Wrapper } from './Login.styles';
 
-import { Context } from '..context';
+import { Context } from '../Context';
 
 import Button from './Button';
 
@@ -26,9 +26,7 @@ const Login = () => {
                 email,
                 password
             );
-            console.log(sessionId);
             setUser({ sessionId: sessionId.session_id, email });
-
             navigate('/');
         } catch (error) {
             setError(true);
