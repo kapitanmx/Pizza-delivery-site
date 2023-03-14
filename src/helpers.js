@@ -4,6 +4,14 @@ export const calcTime = time => {
     return `${hours}h ${mins}m`;
 };
 
+export const calcPrice = orders => {
+    let price = 0;
+    for (let i = 0; i < orders.length; i++) {
+        price += orders[i].price;
+    }
+    return price;
+}
+
 export const ConvertTimeToPercent = (totalTime, passedTime) => {
     const estimatedTimeLeft = totalTime - passedTime;
     const convertion = Math.floor((totalTime / estimatedTimeLeft) * 100);

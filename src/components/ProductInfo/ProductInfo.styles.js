@@ -17,6 +17,10 @@ export const Content = styled.div`
     background: var(--white);
     border-radius: 25px;
     overflow: scroll;
+    h1, h2, h3, p, a {
+        color: var(--black);
+        text-decoration: none;
+    }
     :-webkit-scrollbar {
         width: 10px;
         height: 12px;

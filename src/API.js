@@ -39,9 +39,6 @@ const apiConfig = {
     }, 
     makeOrder: async (
         purchaser,
-        timeTotal,
-        timeRemaining,
-        timePassed,
         products,
         orderPrice,
         deliveryPrice,
@@ -49,9 +46,6 @@ const apiConfig = {
     ) => {
         const body = {
             purchaser,
-            timeTotal,
-            timeRemaining,
-            timePassed,
             products,
             orderPrice,
             deliveryPrice,

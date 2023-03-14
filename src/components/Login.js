@@ -8,7 +8,6 @@ import { Context } from '../Context';
 
 import Button from './Button';
 
-
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');

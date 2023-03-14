@@ -9,7 +9,7 @@ const initialState = {
     total_results: 0
 };
 
-export const useOrderFetch = () => {
+export const useOrdersFetch = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [state, setState] = useState({});
     const [loading, setLoading] = useState(false);
